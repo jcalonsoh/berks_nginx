@@ -1,0 +1,26 @@
+---
+driver:
+  name: vagrant
+  box: chef-centos-6.6
+  box_url:  https://atlas.hashicorp.com/jcalonsoh/boxes/chef-centos-6.6/versions/1.0.0/providers/virtualbox.box
+  network:
+    - ["forwarded_port", {guest: 80, host: 8081}]
+
+  customize:
+    memory: 2048
+    cpus: 2
+  synced_folders:
+    - ["./chef", "/chef"]
+
+provisioner:
+  name: chef_zero
+  chef_omnibus_url: file:///chef/installer/install.sh
+
+platforms:
+  - name: chef-centos-6.6
+
+suites:
+  - name: default
+    run_list:
+      - recipe[agentJ_nginx::default]
+    attributes:
