@@ -1,0 +1,1 @@
+default['nginx']['dir'] = node['nginx']['dir']

@@ -29,11 +29,12 @@ suites:
       hostname: web1
       network:
         - ["forwarded_port", {guest: 80, host: 8081}]
-  - name: web2
-    run_list:
-      - recipe[agentJ_nginx::default]
-    attributes:
-    driver_config:
-      hostname: web2
-      network:
-        - ["forwarded_port", {guest: 80, host: 8082}]
+
+#  - name: web2
+#    run_list:
+#      - recipe[agentJ_nginx::default]
+#    attributes:
+#    driver_config:
+#      hostname: web2
+#      network:
+#        - ["forwarded_port", {guest: 80, host: 8082}]
