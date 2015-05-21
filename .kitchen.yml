@@ -3,10 +3,10 @@ driver:
   name: vagrant
   box: chef-centos-6.6
   box_url:  https://atlas.hashicorp.com/jcalonsoh/boxes/chef-centos-6.6/versions/1.0.0/providers/virtualbox.box
-
   customize:
     memory: 2048
-    cpus: 2
+    cpus: 4
+    nictype2: 'Am79C970A'
   synced_folders:
     - ["./chef", "/chef"]
 
@@ -16,6 +16,9 @@ provisioner:
 
 platforms:
   - name: chef-centos-6.6
+    driver:
+      network:
+        - ['public_network', bridge: 'em1']
 
 suites:
   - name: web1
@@ -23,16 +26,14 @@ suites:
       - recipe[agentJ_nginx::default]
     attributes:
     driver_config:
+      hostname: web1
       network:
         - ["forwarded_port", {guest: 80, host: 8081}]
-        - ["private_network", {ip: "10.0.2.15"}]
-        - ['public_network', bridge: 'em1']
   - name: web2
     run_list:
       - recipe[agentJ_nginx::default]
     attributes:
     driver_config:
+      hostname: web2
       network:
         - ["forwarded_port", {guest: 80, host: 8082}]
-        - ["private_network", {ip: "10.0.2.16"}]
-        - ['public_network', bridge: 'em1']

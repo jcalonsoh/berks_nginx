@@ -9,7 +9,9 @@
 
 include_recipe 'nginx::default'
 
-package 'php-fpm'
+package 'php-fpm' do
+  action :install
+end
 
 service 'php-fpm' do
   action [:enable, :start]
