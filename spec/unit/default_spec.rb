@@ -24,7 +24,7 @@ describe 'agentJ_nginx::default' do
   end
 
   context 'Enabling and Starting Nginx & PHP_FPM' do
-      it 'Test starts a service nginx' do
+    it 'Test starts a service nginx' do
       expect(chef_run).to_not start_service('httpd')
       expect(chef_run).to start_service('nginx')
     end
