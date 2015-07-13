@@ -7,6 +7,12 @@
 # All rights reserved - Do Not Redistribute
 #
 
+include_recipe 'iptables::default'
+
+iptables_rule 'http' do
+  action :enable
+end
+
 include_recipe 'nginx::default'
 
 package 'php-fpm' do

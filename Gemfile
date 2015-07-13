@@ -4,6 +4,7 @@ ruby '2.0.0'
 gem 'berkshelf', '~> 2.0.18'
 gem 'test-kitchen', '~> 1.2.1'
 gem 'kitchen-vagrant', '~> 0.15.0'
+gem 'kitchen-openstack', '~> 1.8.0'
 
 gem 'rb-readline'
 gem 'knife-ec2'

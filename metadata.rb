@@ -9,3 +9,4 @@ version          '0.1.1'
 supports 'centos', '= 6.6'
 
 depends 'nginx', '~> 2.7.6'
+depends 'iptables', '~> 1.0.0'
