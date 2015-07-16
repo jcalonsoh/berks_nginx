@@ -10,8 +10,8 @@ driver:
   server_name: web1
   network_ref:
     - private_network
-  public_key_path: /Users/jalonso/development/meetup/test-openstack/openstack/cloud.key.pub
-  private_key_path: /Users/jalonso/development/meetup/test-openstack/openstack/cloud.key
+  public_key_path: openstack/cloud.key.pub
+  private_key_path: openstack/cloud.key
   username: centos
   key_name: cloud
   floating_ip: 172.17.101.203
